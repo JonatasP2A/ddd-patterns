@@ -1,6 +1,6 @@
 import Address from "./address"
 
-class Customer {
+export default class Customer {
   _id: string
   _name: string = ""
   _address?: Address
@@ -37,7 +37,7 @@ class Customer {
     this._active = false
   }
 
-  set address(address: Address) {
+  set Address(address: Address) {
     this._address = address
   }
 }
