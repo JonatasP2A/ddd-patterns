@@ -35,7 +35,6 @@ export default class Customer {
   }
 
   activate() {
-    console.log(this._address)
     if (!this._address) {
       throw new Error("Address is mandatory to activate a customer")
     }
