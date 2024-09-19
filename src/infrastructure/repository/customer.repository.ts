@@ -53,6 +53,9 @@ export default class CustomerRepository implements CustomerRepositoryInterface {
       const address = new Address(customerModel.street, customerModel.number, customerModel.zipcode, customerModel.city);
       customer.addRewardPoints(customerModel.rewardPoints);
       customer.changeAddress(address);
+      if (customerModel.active) {
+        customer.activate();
+      }
       return customer;
     });
     return customers;
