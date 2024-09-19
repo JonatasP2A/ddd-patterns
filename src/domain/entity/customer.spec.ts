@@ -20,7 +20,7 @@ describe("Customer unit tests", () => {
   it("should activate customer", () => {
     const customer = new Customer("123", "John Doe")
     const address = new Address("Street 1", 123, "24220300", "Niterói")
-    customer.Address = address
+    customer.changeAddress(address)
 
     customer.activate()
 
