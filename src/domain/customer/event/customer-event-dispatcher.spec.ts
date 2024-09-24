@@ -1,5 +1,5 @@
-import Address from "../../entity/address";
-import EventDispatcher from "../@shared/event-dispatcher";
+import EventDispatcher from "../../@shared/event/event-dispatcher";
+import Address from "../value-object/address";
 import CustomerAddressChangedEvent from "./customer-address-changed.event";
 import CustomerCreatedEvent from "./customer-created.event";
 import NotifyOngoingDeliveryOperationsToRerouteHandler from "./handler/notify-ongoing-delivery-operations-to-reroute.handler";
