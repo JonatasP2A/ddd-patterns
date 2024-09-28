@@ -9,7 +9,7 @@ export default class ProductFactory {
       case "a":
         return new Product(uuid(), name, price);
       case "b":
-        return new ProductB("b", name, price);
+        return new ProductB(uuid(), name, price);
       default:
         throw new Error("Invalid product type");
     }
