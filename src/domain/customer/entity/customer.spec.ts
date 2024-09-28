@@ -3,11 +3,17 @@ import Customer from "./customer"
 
 describe("Customer unit tests", () => {
   it("should throw error when id is empty", () => {
-    expect(() => new Customer("", "John Doe")).toThrow("ID is required")
+    expect(() => new Customer("", "John Doe")).toThrow("Customer: ID is required")
   })
 
   it("should throw error when name is empty", () => {
-    expect(() => new Customer("123", "")).toThrow("Name is required")
+    expect(() => new Customer("123", "")).toThrow("Customer: Name is required")
+  })
+
+  it("should throw error when id and name is empty", () => {
+    expect(() => new Customer("", "")).toThrow(
+      "Customer: ID is required, Customer: Name is required"
+    )
   })
 
   it("should change name", () => {

@@ -48,27 +48,34 @@ describe("Unit Test update customer usecase", () => {
     await expect(usecase.execute(input)).rejects.toThrow("Customer not found");
   });
 
+  it("should throw an error if street is missing", async () => {
+    const customerRepository = MockRepository();
+    const usecase = new UpdateCustomerUseCase(customerRepository);
+
+    const inputWithoutStreet = {
+      id: customer.id,
+      name: "Jane Doe",
+      address: {
+        street: "",
+        number: 456,
+        zip: "54321",
+        city: "Springfield 2"
+      }
+    };
+
+    await expect(usecase.execute(inputWithoutStreet)).rejects.toThrow(
+      "Street is required"
+    );
+  });
+
   it("should throw an error if name is missing", async () => {
     const customerRepository = MockRepository();
     const usecase = new UpdateCustomerUseCase(customerRepository);
 
     const inputWithoutName = { ...input, name: "" };
 
-    await expect(usecase.execute(inputWithoutName)).rejects.toThrow("Name is required");
-  });
-
-  it("should throw an error if street is missing", async () => {
-    const customerRepository = MockRepository();
-    const usecase = new UpdateCustomerUseCase(customerRepository);
-
-    const inputWithoutStreet = { 
-      ...input, 
-      address: {
-        ...input.address,
-        street: "",
-      }  
-    };
-
-    await expect(usecase.execute(inputWithoutStreet)).rejects.toThrow("Street is required");
+    await expect(usecase.execute(inputWithoutName)).rejects.toThrow(
+      "Customer: Name is required"
+    );
   });
 });
